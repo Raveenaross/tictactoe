@@ -1,0 +1,30 @@
+<div class="board grid justify-items-center">
+    <div *ngFor="let cell of cells; let i = index" class="cell" (click)="makeMove(i)">
+        {{ cell }}
+    </div>
+</div>
+<br>
+<div *ngIf="winner" class="winner-message text-center " style="font-family:Gameplay;color:#f3ff3d">
+    <br>
+    <span class="material-symbols-outlined animate-bounce animate-once">
+        sentiment_very_satisfied
+    </span>
+    {{ winner }} Wins!
+</div>
+<div *ngIf="!winner && isBoardFull()" class="draw-message text-center" style="font-family: Gameplay;color:#f3ff3d">
+    <br>
+    <span class="material-symbols-outlined animate-bounce animate-once">
+        sentiment_content
+    </span>
+    It's a Draw!
+</div>
+<br>
+<br>
+<div class="flex justify-center">
+    <button
+        class="drop-shadow-xl bg-gradient-to-r from-purple-900 to-fuchsia-500 hover:from-emerald-200 hover:to-cyan-300 text-white hover:text-blue-900 font-bold py-2 px-4 rounded-full transition delay-500 "
+        style="font-family:League;font-size: 30px;" (click)="restartGame()">
+        Restart Game
+    </button>
+    <br>
+</div>
